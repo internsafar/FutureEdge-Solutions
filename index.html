@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FutureEdge Solutions | Digital Marketing and Business Growth</title>
+<meta name="description" content="FutureEdge Solutions helps businesses strengthen their digital presence, connect with their audiences, and build sustainable growth through creative strategies and digital innovation.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop stop-color='%234b22b8'/%3E%3Cstop offset='1' stop-color='%233b6bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cpath d='M8 17l8-7 8 7M8 24l8-7 8 7' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pd:#120537; --p:#2a0f6e; --pm:#4b22b8; --blue:#3b6bff; --bl:#8fb0ff; --cyan:#5fd0ff;
+  --lav:#f4f1ff; --ink:#1b1440; --muted:#5a5580; --line:#e2dcf7; --white:#fff;
+  --grad:linear-gradient(120deg,#4b22b8 0%,#3b6bff 100%);
+  --head:'Unbounded','Segoe UI',system-ui,sans-serif;
+  --body:'Plus Jakarta Sans','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.7;font-size:1.0625rem;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+svg{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.w{width:min(1200px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.15;letter-spacing:-.02em}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:var(--p);padding:.6rem 1rem;border-radius:8px;z-index:200}
+.skip:focus{left:8px}
+
+/* Nav: transparent over hero, solid after scroll, drawer on mobile */
+header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(18,5,55,.94);backdrop-filter:blur(12px);box-shadow:0 8px 30px -12px rgba(0,0,0,.5)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:#fff}
+.logo svg{width:38px;height:38px;flex:none}
+.logo span{display:grid;line-height:1}
+.logo b{font-family:var(--head);font-weight:600;font-size:1.15rem;letter-spacing:-.03em}
+.logo small{font-size:.62rem;letter-spacing:.32em;color:var(--bl);margin-top:.28rem;font-weight:600}
+.menu{display:flex;list-style:none;align-items:center;gap:.1rem}
+.menu a{display:block;text-decoration:none;color:#d8d0f6;font-weight:500;font-size:.93rem;padding:.5rem .75rem;border-radius:8px;transition:color .2s,background .2s}
+.menu a:hover{color:#fff;background:rgba(255,255,255,.09)}
+.menu a.active{color:#fff;box-shadow:inset 0 -2px 0 var(--blue)}
+.menu a.cta{background:var(--grad);color:#fff;margin-left:.5rem;border-radius:999px;padding:.55rem 1.2rem;font-weight:600}
+.menu a.cta:hover{filter:brightness(1.12)}
+.tg{display:none;width:46px;height:46px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:none;color:#fff;cursor:pointer;place-items:center}
+.tg svg{width:22px;height:22px}
+.scrim{position:fixed;inset:0;background:rgba(10,3,30,.6);opacity:0;pointer-events:none;transition:opacity .3s;z-index:90}
+.scrim.on{opacity:1;pointer-events:auto}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-family:var(--body);font-weight:700;font-size:1rem;padding:.95rem 1.7rem;border-radius:999px;border:2px solid transparent;min-height:50px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-g{background:var(--grad);color:#fff;box-shadow:0 14px 30px -14px rgba(59,107,255,.9)}
+.btn-g:hover{box-shadow:0 18px 34px -12px rgba(59,107,255,1)}
+.btn-o{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+.btn-o:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-w{background:#fff;color:var(--p)}
+.btn-w:hover{background:var(--lav)}
+
+/* Hero */
+.hero{position:relative;background:radial-gradient(900px 500px at 85% 20%,rgba(59,107,255,.45),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(75,34,184,.7),transparent 60%),var(--pd);color:#fff;padding:9rem 0 5rem;overflow:hidden}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2rem,4.9vw,3.9rem);animation:up .9s both}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,#9db8ff,#5fd0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin-top:1.5rem;max-width:52ch;color:#d3cbf2;font-size:1.12rem;animation:up .9s .12s both}
+.cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.1rem;animation:up .9s .24s both}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+.viz{position:relative;animation:up 1s .2s both}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.22);border-radius:26px;padding:1.4rem;backdrop-filter:blur(8px);box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.glass .top{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:#cfc6f2;margin-bottom:1rem}
+.glass .top i{display:flex;gap:5px}.glass .top i b{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35)}
+.bars{display:flex;align-items:flex-end;gap:10px;height:150px}
+.bars span{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(180deg,var(--cyan),var(--blue));transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both}
+.bars span:nth-child(1){height:30%;animation-delay:.5s}.bars span:nth-child(2){height:42%;animation-delay:.6s}.bars span:nth-child(3){height:38%;animation-delay:.7s}.bars span:nth-child(4){height:58%;animation-delay:.8s}.bars span:nth-child(5){height:66%;animation-delay:.9s}.bars span:nth-child(6){height:82%;animation-delay:1s}.bars span:nth-child(7){height:100%;animation-delay:1.1s}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.trend{position:absolute;left:1.4rem;right:1.4rem;top:3.6rem;height:150px;pointer-events:none}
+.trend path{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-dasharray:700;stroke-dashoffset:700;animation:ln 2s 1.1s ease-out forwards}
+@keyframes ln{to{stroke-dashoffset:0}}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.tags span{font-size:.82rem;font-weight:600;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.25rem .85rem}
+.chip{position:absolute;background:#fff;color:var(--p);border-radius:16px;padding:.7rem 1rem;font-weight:700;font-size:.88rem;box-shadow:0 22px 40px -18px rgba(0,0,0,.6);display:flex;align-items:center;gap:.55rem;animation:bob 6s ease-in-out infinite}
+.chip svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chip.a{left:-26px;bottom:34px}.chip.b{right:-14px;top:-22px;animation-delay:-3s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.il{margin-top:.8rem;font-size:.8rem;color:#b9b0e6;text-align:right}
+
+/* Ticker */
+.ticker{background:var(--grad);color:#fff;overflow:hidden;padding:.95rem 0;white-space:nowrap}
+.tk{display:inline-flex;gap:3rem;animation:mq 30s linear infinite;font-family:var(--head);font-weight:500;font-size:.95rem;letter-spacing:-.01em}
+.tk span::after{content:"\2726";margin-left:3rem;opacity:.7}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding:clamp(4.5rem,8vw,7rem) 0}
+.sh{max-width:720px;margin-bottom:3rem}
+.sh h2,.ab h2,.ct h2{font-size:clamp(1.7rem,3.6vw,2.7rem);color:var(--p)}
+.sh p{margin-top:1rem;color:var(--muted)}
+.kick{display:inline-block;font-weight:700;font-size:.85rem;color:var(--blue);margin-bottom:.8rem}
+
+/* About */
+.ab{background:var(--lav)}
+.ab-g{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.ab p{margin-top:1.1rem;color:var(--muted)}
+.facts{margin-top:1.6rem;display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:.9rem 1.1rem}
+.facts dt{font-size:.8rem;color:var(--muted);font-weight:600}
+.facts dd{font-weight:700;color:var(--p);font-size:.98rem}
+.mv{display:grid;gap:1rem}
+.mvc{background:var(--p);color:#fff;border-radius:24px;padding:2rem;position:relative;overflow:hidden}
+.mvc::after{content:"";position:absolute;right:-50px;top:-50px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(95,208,255,.5),transparent 70%)}
+.mvc h3{font-size:1rem;color:var(--cyan);margin-bottom:.6rem}
+.mvc p{margin:0;color:#fff;font-size:1.2rem;font-weight:600;line-height:1.5;position:relative;z-index:1}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.vals div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.1rem 1rem}
+.vals h3{font-size:.88rem;color:var(--p);font-family:var(--body);font-weight:700;letter-spacing:0}
+.vals p{margin:.3rem 0 0;font-size:.85rem;line-height:1.5}
+
+/* Services */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:1.8rem 1.5rem;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s;--mx:50%;--my:0%}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx) var(--my),rgba(59,107,255,.16),transparent 70%);opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-5px);border-color:#b9c8ff;box-shadow:0 26px 50px -28px rgba(42,15,110,.6)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.ic{width:52px;height:52px;border-radius:16px;background:var(--grad);display:grid;place-items:center;margin-bottom:1.2rem;box-shadow:0 12px 22px -12px rgba(59,107,255,.9)}
+.ic svg{width:25px;height:25px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:.98rem;color:var(--p);margin-bottom:.55rem;line-height:1.3}
+.card p{font-size:.93rem;color:var(--muted);line-height:1.6}
+
+/* Work tabs */
+.work{background:var(--pd);color:#fff}
+.work .sh h2{color:#fff}.work .sh p{color:#cfc6f2}.work .kick{color:var(--cyan)}
+.tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.6rem}
+.tab{font:inherit;font-weight:600;font-size:.95rem;color:#d8d0f6;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.65rem 1.3rem;cursor:pointer;min-height:46px;transition:background .2s,color .2s}
+.tab:hover{background:rgba(255,255,255,.14)}
+.tab[aria-selected="true"]{background:#fff;color:var(--p);border-color:#fff}
+.pane{display:none;grid-template-columns:1fr 1fr;gap:2rem;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.18);border-radius:30px;padding:1.4rem;align-items:stretch}
+.pane.on{display:grid;animation:up .5s both}
+.art{border-radius:22px;background:linear-gradient(150deg,#3a1a94,#1c0b52);min-height:300px;display:grid;place-items:center;padding:1.5rem;position:relative;overflow:hidden}
+.art svg{width:100%;height:auto;max-height:280px}
+.pt{padding:1rem .8rem 1rem 0}
+.pt .lab{display:inline-block;font-size:.8rem;font-weight:700;color:var(--pd);background:var(--cyan);border-radius:999px;padding:.2rem .85rem}
+.pt h3{font-size:clamp(1.3rem,2.4vw,1.8rem);margin:1rem 0 .8rem}
+.pt h4{font-size:.85rem;color:var(--cyan);margin:1.2rem 0 .4rem;font-weight:700}
+.pt p{color:#d6cff3;font-size:1rem}
+.pt ul{list-style:none;display:grid;gap:.5rem;color:#fff}
+.pt li{display:flex;gap:.7rem;align-items:flex-start;font-size:.97rem}
+.pt li::before{content:"";flex:none;width:9px;height:9px;margin-top:.6rem;border-radius:50%;background:var(--grad)}
+.pt .note{margin-top:1rem;font-size:.82rem;color:#b9b0e6}
+
+/* Why */
+.wg{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.wg div{border-radius:22px;padding:1.6rem 1.2rem;background:var(--lav);border:1px solid var(--line);transition:transform .25s,background .25s}
+.wg div:hover{transform:translateY(-4px);background:#ebe5ff}
+.wg svg{width:30px;height:30px;stroke:var(--pm);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:1rem}
+.wg h3{font-size:.93rem;color:var(--p);margin-bottom:.4rem;line-height:1.3}
+.wg p{font-size:.9rem;color:var(--muted);line-height:1.55}
+
+/* Insights */
+.ins{background:var(--lav)}
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.post{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.post:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(42,15,110,.6)}
+.cover{height:130px;position:relative;overflow:hidden}
+.cover.c1{background:linear-gradient(120deg,#4b22b8,#3b6bff)}
+.cover.c2{background:linear-gradient(120deg,#2a0f6e,#7b4dff)}
+.cover.c3{background:linear-gradient(120deg,#3b6bff,#5fd0ff)}
+.cover i{position:absolute;border-radius:50%;border:26px solid rgba(255,255,255,.18)}
+.cover i:nth-child(1){width:150px;height:150px;right:-30px;top:-50px}.cover i:nth-child(2){width:80px;height:80px;left:24px;bottom:-30px;border-width:14px}
+.pb{padding:1.5rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.tag{align-self:flex-start;font-size:.78rem;font-weight:700;color:var(--pm);background:var(--lav);border-radius:999px;padding:.2rem .8rem}
+.pb h3{font-size:1.02rem;color:var(--p);line-height:1.35}
+.pb p{color:var(--muted);font-size:.95rem}
+details{margin-top:auto;border-top:1px solid var(--line);padding-top:.8rem}
+summary{cursor:pointer;font-weight:700;color:var(--blue);list-style:none;display:flex;align-items:center;justify-content:space-between;min-height:34px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.3rem;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details ul{margin:.7rem 0 0 1.1rem;color:var(--muted);font-size:.93rem;display:grid;gap:.3rem}
+
+/* Careers */
+.cbox{border-radius:34px;background:var(--grad);color:#fff;padding:clamp(2rem,5vw,4rem);display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center;position:relative;overflow:hidden}
+.cbox::before{content:"";position:absolute;left:-80px;bottom:-120px;width:340px;height:340px;border-radius:50%;border:46px solid rgba(255,255,255,.14)}
+.cbox h2{font-size:clamp(1.7rem,3.6vw,2.6rem)}
+.cbox p{margin-top:1rem;max-width:50ch;color:#eae6ff}
+.cbox .btn{margin-top:1.8rem}
+.roles{display:flex;flex-wrap:wrap;gap:.7rem;position:relative;z-index:1}
+.roles span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.75rem 1.3rem;font-weight:600}
+
+/* Contact */
+.ct{background:var(--lav)}
+.cg{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.ct p.l{margin-top:1.1rem;color:var(--muted)}
+.ph{margin-top:1.6rem;display:grid;gap:.7rem}
+.ph div{display:flex;gap:.8rem;border-bottom:1px dashed #c9bfee;padding-bottom:.7rem}
+.ph dt{font-weight:700;color:var(--p);min-width:84px}.ph dd{color:var(--muted)}
+.note{margin-top:1rem;font-size:.88rem;color:var(--muted)}
+form{background:#fff;border:1px solid var(--line);border-radius:28px;padding:2rem;display:grid;gap:1.1rem;box-shadow:0 30px 60px -38px rgba(42,15,110,.7)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+label{font-weight:700;font-size:.92rem;color:var(--p);display:grid;gap:.4rem}
+input,select,textarea{font:inherit;color:var(--ink);padding:.8rem 1rem;border:1.5px solid #cfc6ee;border-radius:14px;background:#fff;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,107,255,.25)}
+textarea{min-height:120px;resize:vertical}
+.err{color:#b42318;font-size:.85rem;font-weight:500;min-height:1.1rem}
+.bad{border-color:#b42318}
+.ok{display:none;background:#eaf0ff;border:1px solid #aebfff;color:var(--p);border-radius:16px;padding:1rem 1.2rem;font-weight:600}
+.ok.show{display:block}
+
+/* Footer */
+footer{background:var(--pd);color:#bdb4e4;padding:4rem 0 1.8rem}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:2.2rem}
+footer .logo{margin-bottom:1rem}
+footer h4{font-family:var(--head);font-weight:500;color:#fff;font-size:.9rem;margin-bottom:1rem}
+footer ul{list-style:none;display:grid;gap:.5rem;font-size:.95rem}
+footer a{text-decoration:none}footer a:hover{color:#fff}
+.soc{display:flex;gap:.6rem;margin-top:1.2rem}
+.soc button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:none;color:#bdb4e4;display:grid;place-items:center;cursor:not-allowed}
+.soc svg{width:19px;height:19px;fill:currentColor}
+.copy{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.12);font-size:.88rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis,.nojs .rv{opacity:1;transform:none}
+
+@media (max-width:1100px){
+  .sg{grid-template-columns:repeat(2,1fr)}
+  .wg{grid-template-columns:repeat(3,1fr)}
+  .fg{grid-template-columns:1fr 1fr}
+  .fg>div:first-child{grid-column:1/-1}
+}
+@media (max-width:900px){
+  .tg{display:grid}
+  .menu{position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);background:var(--pd);flex-direction:column;align-items:stretch;justify-content:flex-start;padding:5.5rem 1.4rem 2rem;gap:.2rem;transform:translateX(100%);transition:transform .35s ease;z-index:95;box-shadow:-20px 0 50px rgba(0,0,0,.5)}
+  .menu.open{transform:none}
+  .menu a{padding:.85rem 1rem;font-size:1.02rem}
+  .menu a.cta{margin:.8rem 0 0;text-align:center}
+  header .logo,header .tg{position:relative;z-index:110}
+  .hero{padding-top:7.5rem}
+  .hero .w,.ab-g,.cg,.cbox,.pane{grid-template-columns:1fr}
+  .viz{max-width:520px;margin:1rem auto 0;width:100%}
+  .pt{padding:.4rem .4rem 1rem}
+  .ig{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .sg,.ig,.r2{grid-template-columns:1fr}
+  .wg{grid-template-columns:1fr 1fr}
+  .vals{grid-template-columns:1fr 1fr}
+  .facts{grid-template-columns:1fr}
+  .cta .btn{width:100%}
+  .chip.a{left:-8px}.chip.b{right:-6px}
+  .fg{grid-template-columns:1fr}
+  form{padding:1.4rem}
+  .ph div{flex-direction:column;gap:.1rem}
+}
+@media (max-width:420px){.wg{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .trend path{stroke-dashoffset:0}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body class="nojs">
+<a class="skip" href="#main">Skip to content</a>
+
+<header id="hd">
+  <div class="w nav">
+    <a class="logo" href="#home" aria-label="FutureEdge Solutions home">
+      <svg viewBox="0 0 38 38" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#6a3df0"/><stop offset="1" stop-color="#3b6bff"/></linearGradient></defs><rect width="38" height="38" rx="11" fill="url(#lg)"/><path d="M9.5 20.5L19 12l9.5 8.5M9.5 28L19 19.5 28.5 28" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><b>FutureEdge</b><small>SOLUTIONS</small></span>
+    </a>
+    <button class="tg" id="tg" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a class="cta" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+<div class="scrim" id="scrim"></div>
+
+<main id="main">
+<section class="hero" id="home" style="padding-bottom:5rem">
+  <div class="w">
+    <div>
+      <h1>Your Vision. Our Strategy. <em>Limitless Growth.</em></h1>
+      <p>FutureEdge Solutions helps businesses strengthen their digital presence, connect with their audiences, and build sustainable growth through creative strategies and digital innovation.</p>
+      <div class="cta">
+        <a class="btn btn-g" href="#services">Explore Our Services</a>
+        <a class="btn btn-o" href="#contact">Let&rsquo;s Talk</a>
+      </div>
+    </div>
+    <div class="viz" aria-hidden="true">
+      <div class="glass">
+        <div class="top"><i><b></b><b></b><b></b></i><span>Growth view</span></div>
+        <div style="position:relative">
+          <div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <svg class="trend" style="left:0;right:0;top:0;width:100%;height:150px" viewBox="0 0 400 150" preserveAspectRatio="none"><path d="M5 120C60 110 90 95 130 100S200 70 245 62 330 38 395 8"/></svg>
+        </div>
+        <div class="tags"><span>Visibility</span><span>Audience</span><span>Engagement</span></div>
+      </div>
+      <div class="chip a"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Analytics</div>
+      <div class="chip b"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L3 21l1.9-6.4A8 8 0 1121 12z"/></svg>Social</div>
+      <p class="il">Illustrative graphic</p>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="tk">
+    <span>Practical marketing skills</span><span>Campaign planning</span><span>Content strategy</span><span>Audience engagement</span>
+    <span>Practical marketing skills</span><span>Campaign planning</span><span>Content strategy</span><span>Audience engagement</span>
+    <span>Practical marketing skills</span><span>Campaign planning</span><span>Content strategy</span><span>Audience engagement</span>
+    <span>Practical marketing skills</span><span>Campaign planning</span><span>Content strategy</span><span>Audience engagement</span>
+  </div>
+</div>
+
+<section class="ab" id="about">
+  <div class="w">
+    <div class="ab-g">
+      <div class="rv">
+        <span class="kick">About us</span>
+        <h2>Helping brands show up, connect and grow.</h2>
+        <p>FutureEdge Solutions, operating under the brand FutureEdge, is a fictional marketing company based in Bengaluru, Karnataka, India. It focuses on digital marketing, social media marketing, content creation, search engine optimization (SEO), brand promotion and market research.</p>
+        <p>The company aims to help businesses strengthen their brand presence, connect with their target audiences and improve their online visibility.</p>
+        <dl class="facts">
+          <div><dt>Brand</dt><dd>FutureEdge</dd></div>
+          <div><dt>Industry</dt><dd>Marketing and Digital Marketing</dd></div>
+          <div><dt>Business type</dt><dd>Partnership</dd></div>
+          <div><dt>Location</dt><dd>Bengaluru, Karnataka, India</dd></div>
+        </dl>
+      </div>
+      <div class="mv rv">
+        <div class="mvc"><h3>Our mission</h3><p>Help businesses build a stronger digital presence through creative and effective marketing.</p></div>
+        <div class="mvc" style="background:var(--pm)"><h3>Our vision</h3><p>Businesses of every size connecting with their audiences through creative, thoughtful marketing.</p></div>
+      </div>
+    </div>
+    <div class="vals" style="margin-top:2rem">
+      <div class="rv"><h3>Creativity</h3><p>Fresh ideas that suit each brand.</p></div>
+      <div class="rv"><h3>Transparency</h3><p>Open, honest communication.</p></div>
+      <div class="rv"><h3>Collaboration</h3><p>Working side by side with you.</p></div>
+      <div class="rv"><h3>Continuous improvement</h3><p>Learning from every campaign.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="w">
+    <div class="sh rv"><span class="kick">Services</span><h2>Marketing that covers the whole journey.</h2><p>From planning and market research to content, search and campaigns, we help brands build a consistent, visible presence.</p></div>
+    <div class="sg">
+      <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div><h3>Digital Marketing Strategy</h3><p>Online campaign plans grounded in audience and market research, built to reach and convert the right people.</p></article>
+      <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L3 21l1.9-6.4A8 8 0 1121 12z"/></svg></div><h3>Social Media Management</h3><p>Planning, posting and engagement across social platforms, with a steady and consistent voice.</p></article>
+      <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></div><h3>Search Engine Optimization (SEO)</h3><p>Search optimization that improves your online visibility and helps customers find you.</p></article>
+      <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM9 11h6M9 15h6M9 8h3"/></svg></div><h3>Content Marketing</h3><p>Clear, creative content aligned to your brand and your audience.</p></article>
+      <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div><h3>Brand Identity and Design</h3><p>Building awareness and a consistent brand presence through thoughtful identity and design.</p></article>
+      <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M12 18v3"/></svg></div><h3>Website Design</h3><p>Clean, responsive websites that present your brand clearly on every screen.</p></article>
+      <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div><h3>Performance Marketing</h3><p>Online campaigns planned and refined with data, aimed at reaching and converting audiences.</p></article>
+      <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>Business Growth Consulting</h3><p>Practical guidance that connects marketing activity with the goals of your business.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="w">
+    <div class="sh rv"><span class="kick">Our work</span><h2>Sample case studies.</h2><p>Three illustrative scenarios that show how we approach a brief. They are samples, not real client projects.</p></div>
+    <div class="tabs rv" role="tablist" aria-label="Sample case studies">
+      <button class="tab" role="tab" id="t1" aria-selected="true" aria-controls="p1">Brand Launch Campaign</button>
+      <button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">E-commerce Growth Strategy</button>
+      <button class="tab" role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">Social Media Engagement Campaign</button>
+    </div>
+
+    <div class="pane on" id="p1" role="tabpanel" aria-labelledby="t1">
+      <div class="art" aria-hidden="true"><svg viewBox="0 0 320 240" fill="none"><circle cx="160" cy="120" r="88" stroke="#8fb0ff" stroke-opacity=".35" stroke-width="2"/><circle cx="160" cy="120" r="58" stroke="#5fd0ff" stroke-opacity=".6" stroke-width="2"/><circle cx="160" cy="120" r="30" fill="#3b6bff"/><path d="M148 124l12-11 12 11M148 133l12-11 12 11" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="262" cy="66" r="9" fill="#5fd0ff"/><circle cx="58" cy="168" r="7" fill="#8fb0ff"/><circle cx="240" cy="200" r="5" fill="#fff" fill-opacity=".7"/></svg></div>
+      <div class="pt"><span class="lab">Illustrative sample</span><h3>Brand Launch Campaign</h3>
+        <h4>Objective</h4><p>Introduce a new brand to its target audience and establish a consistent presence from day one.</p>
+        <h4>Illustrative results</h4><ul><li>A clear, consistent brand voice across channels</li><li>Stronger awareness among the intended audience</li><li>A content plan ready to sustain momentum</li></ul>
+        <p class="note">Illustrative scenario only. These are not verified results and do not refer to a real client.</p></div>
+    </div>
+
+    <div class="pane" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+      <div class="art" aria-hidden="true"><svg viewBox="0 0 320 240" fill="none"><rect x="40" y="46" width="240" height="150" rx="16" fill="#ffffff" fill-opacity=".1" stroke="#8fb0ff" stroke-opacity=".5" stroke-width="2"/><rect x="62" y="68" width="62" height="62" rx="10" fill="#3b6bff"/><rect x="136" y="68" width="62" height="62" rx="10" fill="#5fd0ff" fill-opacity=".8"/><rect x="210" y="68" width="48" height="62" rx="10" fill="#8fb0ff" fill-opacity=".5"/><path d="M62 164h120M62 180h70" stroke="#fff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/><circle cx="256" cy="168" r="14" fill="#5fd0ff"/><path d="M250 168l4 4 7-8" stroke="#120537" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="pt"><span class="lab">Illustrative sample</span><h3>E-commerce Growth Strategy</h3>
+        <h4>Objective</h4><p>Improve the online visibility of a sample online store and help more visitors become customers.</p>
+        <h4>Illustrative results</h4><ul><li>Better search visibility for key product pages</li><li>Clearer product content that supports buying decisions</li><li>Campaigns refined using performance data</li></ul>
+        <p class="note">Illustrative scenario only. These are not verified results and do not refer to a real client.</p></div>
+    </div>
+
+    <div class="pane" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+      <div class="art" aria-hidden="true"><svg viewBox="0 0 320 240" fill="none"><rect x="50" y="52" width="150" height="62" rx="20" fill="#3b6bff"/><path d="M80 114l-8 18 26-12" fill="#3b6bff"/><rect x="120" y="128" width="150" height="62" rx="20" fill="#ffffff" fill-opacity=".16" stroke="#8fb0ff" stroke-opacity=".6" stroke-width="2"/><path d="M240 190l8 18-26-12" fill="#ffffff" fill-opacity=".16"/><path d="M72 76h90M72 92h56" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-opacity=".85"/><path d="M142 152h90M142 168h56" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-opacity=".6"/><circle cx="254" cy="62" r="10" fill="#5fd0ff"/></svg></div>
+      <div class="pt"><span class="lab">Illustrative sample</span><h3>Social Media Engagement Campaign</h3>
+        <h4>Objective</h4><p>Encourage more conversation between a sample brand and its audience across social platforms.</p>
+        <h4>Illustrative results</h4><ul><li>A regular posting rhythm planned around audience interests</li><li>More two-way conversation with followers</li><li>Content ideas shaped by what the audience responds to</li></ul>
+        <p class="note">Illustrative scenario only. These are not verified results and do not refer to a real client.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="w">
+    <div class="sh rv"><span class="kick">Why choose us</span><h2>Strategy and creativity, working together.</h2></div>
+    <div class="wg">
+      <div class="rv"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg><h3>Strategic thinking</h3><p>Every campaign begins with a clear plan and clear goals.</p></div>
+      <div class="rv"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11a2.1 2.1 0 00-3-3L5 16l-1 4zM14 7l3 3"/></svg><h3>Creative execution</h3><p>Ideas shaped into content that fits your brand.</p></div>
+      <div class="rv"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3>Data-informed decisions</h3><p>Audience insight and results guide what we do next.</p></div>
+      <div class="rv"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6M16 14c3 0 6 1.8 6 5"/></svg><h3>Collaborative working</h3><p>We work with your team, not around it.</p></div>
+      <div class="rv"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg><h3>Customized solutions</h3><p>Plans built around your brand, not a template.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ins" id="insights">
+  <div class="w">
+    <div class="sh rv"><span class="kick">Insights</span><h2>Ideas worth reading.</h2><p>Sample articles that show the kind of topics we write about.</p></div>
+    <div class="ig">
+      <article class="post rv"><div class="cover c1" aria-hidden="true"><i></i><i></i></div><div class="pb"><span class="tag">Sample article</span><h3>Digital marketing trends to keep an eye on</h3><p>A look at how audiences, platforms and content habits are shifting, and what that means for planning.</p>
+        <details><summary>Article outline</summary><ul><li>Where audience attention is moving</li><li>Why consistency beats bursts of activity</li><li>Turning trends into a practical plan</li></ul></details></div></article>
+      <article class="post rv"><div class="cover c2" aria-hidden="true"><i></i><i></i></div><div class="pb"><span class="tag">Sample article</span><h3>Building a strong brand, step by step</h3><p>How a clear purpose, a consistent voice and steady presence help people recognise and trust a brand.</p>
+        <details><summary>Article outline</summary><ul><li>Start with a clear brand purpose</li><li>Keep voice and visuals consistent</li><li>Show up where your audience is</li></ul></details></div></article>
+      <article class="post rv"><div class="cover c3" aria-hidden="true"><i></i><i></i></div><div class="pb"><span class="tag">Sample article</span><h3>Simple ways to improve online engagement</h3><p>Practical ideas for starting better conversations with your audience across your channels.</p>
+        <details><summary>Article outline</summary><ul><li>Listen before you post</li><li>Ask, reply and invite conversation</li><li>Review what works and refine</li></ul></details></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="careers">
+  <div class="w">
+    <div class="cbox rv">
+      <div>
+        <h2>Grow your career at the edge.</h2>
+        <p>We invite creative professionals, marketing specialists, designers and business strategists to explore future opportunities with FutureEdge Solutions.</p>
+        <a class="btn btn-w" href="#contact" id="careerBtn">Explore Opportunities</a>
+      </div>
+      <div class="roles"><span>Creative professionals</span><span>Marketing specialists</span><span>Designers</span><span>Business strategists</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ct" id="contact">
+  <div class="w cg">
+    <div class="rv">
+      <span class="kick">Contact</span>
+      <h2>Let&rsquo;s talk about your growth.</h2>
+      <p class="l">Tell us about your brand and what you would like to achieve. This form is a front-end demo, so nothing is sent from this page.</p>
+      <dl class="ph">
+        <div><dt>Email</dt><dd>[Email address to be added]</dd></div>
+        <div><dt>Phone</dt><dd>[Phone number to be added]</dd></div>
+        <div><dt>Location</dt><dd>Bengaluru, Karnataka, India</dd></div>
+      </dl>
+      <p class="note">Email and phone are placeholders to be completed by an authorised representative.</p>
+    </div>
+    <form id="cf" class="rv" novalidate>
+      <div class="r2">
+        <label for="n">Full name<input id="n" type="text" autocomplete="name" aria-describedby="en"><span class="err" id="en"></span></label>
+        <label for="e">Email address<input id="e" type="email" autocomplete="email" aria-describedby="ee"><span class="err" id="ee"></span></label>
+      </div>
+      <div class="r2">
+        <label for="c">Company name<input id="c" type="text" autocomplete="organization" aria-describedby="ec"><span class="err" id="ec"></span></label>
+        <label for="s">Service interested in
+          <select id="s" aria-describedby="es">
+            <option value="">Select a service</option>
+            <option>Digital Marketing Strategy</option>
+            <option>Social Media Management</option>
+            <option>Search Engine Optimization (SEO)</option>
+            <option>Content Marketing</option>
+            <option>Brand Identity and Design</option>
+            <option>Website Design</option>
+            <option>Performance Marketing</option>
+            <option>Business Growth Consulting</option>
+            <option>Careers and future opportunities</option>
+          </select><span class="err" id="es"></span></label>
+      </div>
+      <label for="m">Message<textarea id="m" aria-describedby="em"></textarea><span class="err" id="em"></span></label>
+      <button class="btn btn-g" type="submit">Send message</button>
+      <div class="ok" id="ok" role="status" aria-live="polite">Thanks, your form is complete. This is a front-end demo, so no email has been sent.</div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="w">
+    <div class="fg">
+      <div>
+        <a class="logo" href="#home" aria-label="FutureEdge Solutions home">
+          <svg viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="11" fill="url(#lg)"/><path d="M9.5 20.5L19 12l9.5 8.5M9.5 28L19 19.5 28.5 28" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><b>FutureEdge</b><small>SOLUTIONS</small></span>
+        </a>
+        <p>Creative digital marketing that helps businesses strengthen their brand presence and connect with their audiences.</p>
+        <div class="soc" aria-label="Social media (links to be added)">
+          <button type="button" disabled title="LinkedIn link to be added" aria-label="LinkedIn (link to be added)"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2 3.77-2 4.03 0 4.77 2.55 4.77 5.87V21h-4v-5.07c0-1.2-.02-2.77-1.77-2.77-1.77 0-2.04 1.3-2.04 2.68V21h-4z"/></svg></button>
+          <button type="button" disabled title="Instagram link to be added" aria-label="Instagram (link to be added)"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm5 3.5A4.5 4.5 0 1112 16.5a4.5 4.5 0 010-9zm0 2A2.5 2.5 0 1012 14.5a2.5 2.5 0 000-5zM17.2 6a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2z"/></svg></button>
+          <button type="button" disabled title="X link to be added" aria-label="X (link to be added)"><svg viewBox="0 0 24 24"><path d="M18.2 2.5h3.3l-7.2 8.2 8.5 11.3h-6.7l-5.2-6.8-6 6.8H1.6l7.7-8.8L1.2 2.5H8l4.7 6.2zm-1.2 17.5h1.8L7.1 4.4H5.2z"/></svg></button>
+          <button type="button" disabled title="YouTube link to be added" aria-label="YouTube (link to be added)"><svg viewBox="0 0 24 24"><path d="M22 8.2a3 3 0 00-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 002 8.2 31 31 0 001.6 12 31 31 0 002 15.8a3 3 0 002.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 002.1-2.1c.4-1.2.4-3.8.4-3.8s0-2.6-.4-3.8zM10 15V9l5.2 3z"/></svg></button>
+        </div>
+      </div>
+      <div><h4>Quick links</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#work">Our Work</a></li><li><a href="#insights">Insights</a></li><li><a href="#careers">Careers</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#services">Digital Marketing</a></li><li><a href="#services">Social Media</a></li><li><a href="#services">SEO</a></li><li><a href="#services">Content Marketing</a></li><li><a href="#services">Brand Identity</a></li><li><a href="#services">Business Growth</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>[Email address to be added]</li><li>[Phone number to be added]</li><li>Bengaluru, Karnataka, India</li></ul></div>
+    </div>
+    <div class="copy"><span>&copy; <span id="yr">2026</span> FutureEdge Solutions. All rights reserved.</span><span>Sample portfolio website.</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.body.classList.remove('nojs');
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var hd = document.getElementById('hd'), tg = document.getElementById('tg'), menu = document.getElementById('menu'), scrim = document.getElementById('scrim');
+  function onScroll(){ hd.classList.toggle('solid', window.scrollY > 30); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  function setMenu(o){
+    menu.classList.toggle('open', o); scrim.classList.toggle('on', o);
+    tg.setAttribute('aria-expanded', o); tg.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = o ? 'hidden' : '';
+  }
+  tg.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
+  scrim.addEventListener('click', function(){ setMenu(false); });
+  menu.addEventListener('click', function(e){ if(e.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setMenu(false); });
+
+  var navA = [].slice.call(menu.querySelectorAll('a:not(.cta)')), rvs = [].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var so = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ navA.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); }); } });
+    }, {rootMargin:'-40% 0px -55% 0px'});
+    navA.forEach(function(a){ var s = document.querySelector(a.getAttribute('href')); if(s) so.observe(s); });
+    var ro = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); ro.unobserve(e.target); } });
+    }, {threshold:.1});
+    rvs.forEach(function(el,i){ el.style.transitionDelay = (i % 4) * 70 + 'ms'; ro.observe(el); });
+  } else { rvs.forEach(function(el){ el.classList.add('vis'); }); }
+
+  // Spotlight on service cards
+  [].forEach.call(document.querySelectorAll('.card'), function(c){
+    c.addEventListener('pointermove', function(e){
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // Tabs
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  function pick(t){
+    tabs.forEach(function(x){
+      var on = x === t, p = document.getElementById(x.getAttribute('aria-controls'));
+      x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+      p.hidden = !on; p.classList.toggle('on', on);
+    });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ pick(t); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if(e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if(e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if(n){ e.preventDefault(); n.focus(); pick(n); }
+    });
+  });
+
+  // Careers button preselects subject
+  document.getElementById('careerBtn').addEventListener('click', function(){ document.getElementById('s').value = 'Careers and future opportunities'; });
+
+  // Form validation (front-end demo)
+  var f = document.getElementById('cf'), ok = document.getElementById('ok');
+  var rules = {
+    n:function(v){ return v.trim().length < 2 ? 'Please enter your full name.' : ''; },
+    e:function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Please enter a valid email address.'; },
+    c:function(v){ return v.trim().length < 2 ? 'Please enter your company name.' : ''; },
+    s:function(v){ return v ? '' : 'Please choose a service.'; },
+    m:function(v){ return v.trim().length < 10 ? 'Please write at least 10 characters.' : ''; }
+  };
+  var eid = {n:'en', e:'ee', c:'ec', s:'es', m:'em'};
+  function check(id){
+    var el = document.getElementById(id), msg = rules[id](el.value);
+    document.getElementById(eid[id]).textContent = msg;
+    el.classList.toggle('bad', !!msg); el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+  Object.keys(rules).forEach(function(id){ document.getElementById(id).addEventListener('blur', function(){ check(id); }); });
+  f.addEventListener('submit', function(e){
+    e.preventDefault(); ok.classList.remove('show');
+    var good = true, first = null;
+    Object.keys(rules).forEach(function(id){ if(!check(id)){ good = false; if(!first) first = id; } });
+    if(!good){ document.getElementById(first).focus(); return; }
+    f.reset(); ok.classList.add('show');
+    setTimeout(function(){ ok.classList.remove('show'); }, 9000);
+  });
+})();
+</script>
+</body>
+</html>
